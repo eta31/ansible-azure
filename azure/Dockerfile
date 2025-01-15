@@ -9,13 +9,13 @@ RUN apt-get update && \
     curl -sL https://aka.ms/InstallAzureCLIDeb | bash && \
     python3 -m venv "$HOME/venv"
 
-COPY . "$HOME/ansible"
-WORKDIR "$HOME/ansible"
+COPY requirements.txt "$HOME/requirements.txt"
+WORKDIR "$HOME"
 
 # Ensure the python virtual environment is in PATH
 ENV PATH="$HOME/venv/bin:$PATH"
 
 # installing azure libraries
 RUN pip install --upgrade pip && pip install ansible && pip install ansible[azure] && \
-    pip install -r ./azure/requirements.txt
+    pip install -r requirements.txt
 

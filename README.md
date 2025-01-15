@@ -12,14 +12,14 @@ Learning ansible with Azure cloud with CI/CD implementation
 
 ### Building docker image
 ```
-docker build -t ansible:v2 -f azure/Dockerfile .
+docker build -t ansible:latest -f azure/Dockerfile .
 ```
 
 ### Executing program
 
 * How to start container
 ```
-docker run --name ansible-test ansible:v2
+docker run -it --rm --volume "$(pwd)/azure":/root/azure --workdir /root/azure ansible:latest
 docker exec -it <container_id> /bin/bash 
 ```
 
@@ -41,7 +41,7 @@ command to run if program contains helper info
 
 ## Author
 
-[@Eta31](https://github.com/eta3)
+[@Eta31](https://github.com/eta31)
 
 
 

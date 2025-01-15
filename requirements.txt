@@ -1,4 +1,5 @@
 packaging
+pywinrm
 requests[security]
 xmltodict
 msgraph-sdk==1.6.0
